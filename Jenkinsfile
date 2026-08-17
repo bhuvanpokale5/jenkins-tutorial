@@ -2,6 +2,7 @@ pipeline {
     agent any
 
     stages {
+
         stage('Checkout') {
             steps {
                 checkout scm
@@ -15,13 +16,12 @@ pipeline {
         }
 
         stage('Deploy') {
-    steps {
-        bat '"C:\\Users\\bhuva\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" stop containertut5 || exit 0'
-        bat '"C:\\Users\\bhuva\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" rm containertut5 || exit 0'
-        bat '"C:\\Users\\bhuva\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" run -d -p 5400:5000 --name containertut5 tut5'
-    }
-}
+            steps {
+                bat '"C:\\Users\\bhuva\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" stop containertut5 || exit 0'
+                bat '"C:\\Users\\bhuva\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" rm containertut5 || exit 0'
+                bat '"C:\\Users\\bhuva\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" run -d -p 5400:5000 --name containertut5 tut5'
             }
         }
+
     }
 }
